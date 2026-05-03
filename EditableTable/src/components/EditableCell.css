@@ -1,0 +1,13 @@
+.cell-content {
+  cursor: pointer;
+}
+
+.cell-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cell-select {
+  width: 100%;
+  box-sizing: border-box;
+}
