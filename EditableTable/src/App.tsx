@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div>
-      <h1>Data Table</h1>
+      <h1>Editable Table Example</h1>
       <EditableTable
         columns={sampleColumns}
         rows={data}

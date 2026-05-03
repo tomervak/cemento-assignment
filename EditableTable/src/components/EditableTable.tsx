@@ -13,6 +13,12 @@ interface EditableTableProps {
 const DEFAULT_PAGE_SIZE = 10;
 const PAGE_SIZE_OPTIONS = [5, 10, 20];
 
+/**
+ * A fully editable table component with pagination and column visibility controls.
+ * @param columns - The column definitions for the table.
+ * @param rows - The data rows to display in the table.
+ * @param onDataChange - Callback function to handle changes to cell data.
+ */
 export default function EditableTable({
   columns,
   rows,
@@ -20,10 +26,6 @@ export default function EditableTable({
 }: EditableTableProps) {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
-  const [visibleColumnIds, setVisibleColumnIds] = useState<string[]>(
-    columns.map((col) => col.id),
-  );
-  const [showColumnSelector, setShowColumnSelector] = useState(false);
 
   const pageCount = Math.max(1, Math.ceil(rows.length / pageSize));
 
@@ -44,6 +46,11 @@ export default function EditableTable({
     setPageSize(newPageSize);
     setPage(1);
   }
+
+  const [visibleColumnIds, setVisibleColumnIds] = useState<string[]>(
+    columns.map((col) => col.id),
+  );
+  const [showColumnSelector, setShowColumnSelector] = useState(false);
 
   const visibleColumns = columns.filter((col) =>
     visibleColumnIds.includes(col.id),
